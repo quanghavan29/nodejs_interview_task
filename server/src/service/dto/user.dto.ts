@@ -2,6 +2,8 @@ import { ApiModelProperty } from '@nestjs/swagger';
 import { IsString, IsEmail } from 'class-validator';
 import { BaseDTO } from './base.dto';
 import { Exclude } from 'class-transformer';
+import { PostDTO } from './post.dto';
+import { CommentDTO } from './comment.dto';
 
 /**
  * An User DTO object.
@@ -34,6 +36,20 @@ export class UserDTO extends BaseDTO {
     required: false,
   })
   authorities?: any[];
+
+  @ApiModelProperty({
+    isArray: true,
+    description: 'Array of posts',
+    required: false,
+  })
+  posts?: PostDTO[];
+
+  @ApiModelProperty({
+    isArray: true,
+    description: 'Array of comments',
+    required: false,
+  })
+  comments?: CommentDTO[];
 
   @Exclude()
   @ApiModelProperty({ example: 'myuser', description: 'User password' })

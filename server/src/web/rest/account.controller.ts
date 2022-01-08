@@ -27,7 +27,7 @@ import { AuthService } from '../../service/auth.service';
 export class AccountController {
   logger = new Logger('AccountController');
 
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService) { }
 
   @Post('/register')
   @ApiOperation({ title: 'Register user' })

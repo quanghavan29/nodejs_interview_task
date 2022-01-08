@@ -1,7 +1,9 @@
 import { Authority } from './authority.entity';
-import { Entity, Column, ManyToMany, JoinTable } from 'typeorm';
+import { Entity, Column, ManyToMany, JoinTable, OneToMany } from 'typeorm';
 import { BaseEntity } from './base/base.entity';
 import { Exclude } from 'class-transformer';
+import { Post } from './post.entity';
+import { Comment } from './comment.entity';
 
 @Entity('user')
 export class User extends BaseEntity {
@@ -21,6 +23,12 @@ export class User extends BaseEntity {
   @ManyToMany(() => Authority)
   @JoinTable()
   authorities?: any[];
+
+  @OneToMany(() => Post, post => post.user)
+  posts?: Post[];
+
+  @OneToMany(() => Comment, comment => comment.user)
+  comments?: Comment[];
 
   @Column({
     type: 'varchar',
