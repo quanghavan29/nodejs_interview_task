@@ -1,0 +1,13 @@
+NODEJS BACKEND TASK
+
+Hãy tạo 1 web api cho mobile app intergrate 
+tính năng thêm và hiển thị danh sách bình luận
+của một bài đăng và tích hợp vào hệ thống Backend hiện có gồm: 
+identity server, web api quản lý bài đăng
+
+1. Hãy mô tả bằng hình vẽ cách bạn sẽ triển khai ứng dụng 
+và tích hợp với hệ thống API hiện có
+2. Tạo project NodeJS và implement 2 api thêm bình luận 
+và danh sách bình luận của 1 bài đăng
+
+Không giới hạn library hay database
