@@ -10,7 +10,7 @@ export class PostDTO extends BaseDTO {
     @ApiModelProperty({ example: 'My Post', description: 'Post content', required: false })
     content?: string;
 
-    @ApiModelProperty({ type: UserDTO, description: 'Article owner', required: false })
+    @ApiModelProperty({ description: 'Article owner', required: false })
     user?: UserDTO;
 
     @ApiModelProperty({

@@ -25,4 +25,25 @@ export class PostService {
         return PostMapper.fromEntityToDTO(postCreated);
     }
 
+    async findById(postId: number): Promise<PostDTO | undefined> {
+        const postFound = await this.postRepository.findOne({id: postId});
+
+        return PostMapper.fromEntityToDTO(postFound);
+    }
+
+    async update(postDTO: PostDTO): Promise<PostDTO | undefined> {
+        const postToUpdate = PostMapper.fromDTOtoEntity(postDTO);
+        const postUpdated = await this.postRepository.save(postToUpdate);
+
+        return PostMapper.fromEntityToDTO(postUpdated);
+    }
+
+    async delete(postDTO: PostDTO): Promise<PostDTO | undefined> {  
+        const postToDelete = PostMapper.fromDTOtoEntity(postDTO);
+
+        const postDeleted = await this.postRepository.remove(postToDelete);
+
+        return PostMapper.fromEntityToDTO(postDeleted);
+    }
+
 }
